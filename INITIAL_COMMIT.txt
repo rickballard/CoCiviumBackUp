@@ -1,0 +1,1 @@
+Initialize CoCache (private AI sidecar) with structure, templates, security, and project index.

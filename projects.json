@@ -1,0 +1,23 @@
+{
+  "updated": "2025-08-09",
+  "projects": [
+    {
+      "code": "CoC",
+      "name": "CoCivium",
+      "priority": 1,
+      "last_touch": "2025-08-09"
+    },
+    {
+      "code": "GIB",
+      "name": "GIB (AI-first content)",
+      "priority": 1,
+      "last_touch": "2025-08-09"
+    },
+    {
+      "code": "GLX",
+      "name": "gibindex (registry)",
+      "priority": 1,
+      "last_touch": "2025-08-09"
+    }
+  ]
+}

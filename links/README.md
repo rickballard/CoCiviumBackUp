@@ -1,0 +1,8 @@
+# /links
+Bookmarks and citations with integrity hashes.
+
+Template:
+- Title:
+- URL:
+- Accessed:
+- SHA-256 (optional for mirrored copies):
