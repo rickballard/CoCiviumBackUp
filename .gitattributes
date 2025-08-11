@@ -1,1 +1,7 @@
 *.md text eol=lf
+admin/inbox/** linguist-generated=true
+*.zip  -diff
+*.docx -diff
+*.odt  -diff
+*.png  -diff
+*.jpg  -diff
