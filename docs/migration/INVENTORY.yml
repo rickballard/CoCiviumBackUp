@@ -14,3 +14,112 @@ sources:
   - name: <another-repo>
     repo: https://github.com/<owner>/<repo>
     components: []
+
+    sources:
+  - name: CoCivium
+    repo: https://github.com/rickballard/CoCivium
+    components:
+      - name: foundations
+        srcPath: foundations
+        destination: packages/foundations
+        method: git-subtree
+        keepHistory: true
+        owner: @rickballard
+        status: planned
+
+      - name: protocols
+        srcPath: protocols
+        destination: packages/protocols
+        method: git-subtree
+        keepHistory: true
+        owner: @rickballard
+        status: planned
+
+      - name: site
+        srcPath: site
+        destination: sites/cocivium
+        method: git-subtree
+        keepHistory: true
+        owner: @rickballard
+        status: planned
+
+      - name: scripts
+        srcPath: scripts
+        destination: tools/scripts
+        method: copy
+        keepHistory: false
+        owner: @rickballard
+        status: planned
+
+      - name: docs
+        srcPath: docs
+        destination: docs/cocivium
+        method: copy
+        keepHistory: false
+        owner: @rickballard
+        status: planned
+
+      - name: governance
+        srcPath: governance
+        destination: docs/governance
+        method: copy
+        keepHistory: false
+        owner: @rickballard
+        status: planned
+
+      - name: insights
+        srcPath: insights
+        destination: docs/insights
+        method: copy
+        keepHistory: false
+        owner: @rickballard
+        status: planned
+
+      - name: outreach
+        srcPath: outreach
+        destination: docs/outreach
+        method: copy
+        keepHistory: false
+        owner: @rickballard
+        status: planned
+
+      - name: admin
+        srcPath: admin
+        destination: ops/admin
+        method: copy
+        keepHistory: false
+        owner: @rickballard
+        status: planned
+
+      - name: ops
+        srcPath: ops
+        destination: ops
+        method: copy
+        keepHistory: false
+        owner: @rickballard
+        status: planned
+
+      - name: assets
+        srcPath: assets
+        destination: assets
+        method: copy
+        keepHistory: false
+        owner: @rickballard
+        status: planned
+
+      - name: meta
+        srcPath: meta
+        destination: meta
+        method: copy
+        keepHistory: false
+        owner: @rickballard
+        status: planned
+
+      - name: projects
+        srcPath: projects
+        destination: packages/projects
+        method: tbd
+        keepHistory: true
+        owner: @rickballard
+        status: needs-scoping
+
