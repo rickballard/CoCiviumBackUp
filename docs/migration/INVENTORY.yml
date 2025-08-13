@@ -1,0 +1,16 @@
+# Copy to INVENTORY.yml and fill in real values.
+sources:
+  - name: CoCivium
+    repo: https://github.com/rickballard/CoCivium
+    notes: Primary source repo
+    components:
+      - name: <component-or-folder>
+        srcPath: <relative/path/in/CoCivium>
+        destination: packages/<new-name>         # where it will live in CoCache
+        method: git-subtree | git-filter-repo | copy
+        keepHistory: true|false
+        owner: @rickballard
+        status: planned|in-progress|done
+  - name: <another-repo>
+    repo: https://github.com/<owner>/<repo>
+    components: []
