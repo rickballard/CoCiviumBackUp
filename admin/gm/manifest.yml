@@ -1,0 +1,8 @@
+# Grand Migration manifest (stub)
+version: 0
+repos:
+  - name: CoCache
+    url: https://github.com/rickballard/CoCache
+    folders:
+      - admin/gm
+      - admin/history
