@@ -1,0 +1,8 @@
+# Grand Migration manifest (stub)
+version: 0
+repos:
+  - name: Civium
+    url: https://github.com/rickballard/Civium
+    folders:
+      - admin/gm
+      - admin/history
