@@ -6,11 +6,17 @@ import tomllib, pathlib
 def bar(value, maxv, x, y, w, h, label):
     pct = 0 if maxv == 0 else min(value / maxv, 1.0)
     filled = int(w * pct)
-    return f'<text x="{x}" y="{y-6}" font-size="10" fill="#aaa">{label}: {value}</text>' \           f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="3" fill="#222"/>' \           f'<rect x="{x}" y="{y}" width="{filled}" height="{h}" rx="3" fill="#00d4ff"/>'
+    return (
+        f'<text x="{x}" y="{y-6}" font-size="10" fill="#aaa">{label}: {value}</text>'
+        f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="3" fill="#222"/>'
+        f'<rect x="{x}" y="{y}" width="{filled}" height="{h}" rx="3" fill="#00d4ff"/>'
+    )
 
 def render_mission(m):
-    svg = ['<svg xmlns="http://www.w3.org/2000/svg" width="420" height="150">',
-           f'<text x="12" y="20" font-size="12" fill="#fff">Mission Eye — {m.get("period","")}</text>']
+    svg = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="420" height="150">',
+        f'<text x="12" y="20" font-size="12" fill="#fff">Mission Eye — {m.get("period","")}</text>'
+    ]
     items = [
         ("Adopters", m.get("adopters",0), 100),
         ("Published Logs", m.get("published_logs",0), 300),
@@ -25,8 +31,10 @@ def render_mission(m):
     return "\n".join(svg)
 
 def render_cred(c):
-    svg = ['<svg xmlns="http://www.w3.org/2000/svg" width="420" height="170">',
-           f'<text x="12" y="20" font-size="12" fill="#fff">Credibility Eye — {c.get("period","")}</text>']
+    svg = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="420" height="170">',
+        f'<text x="12" y="20" font-size="12" fill="#fff">Credibility Eye — {c.get("period","")}</text>'
+    ]
     items = [
         ("DII Verified", c.get("dii_verified_count",0), 50),
         ("Case Studies", c.get("case_studies_published",0), 50),
