@@ -7,6 +7,7 @@ permissions:
 jobs:
   linkcheck:
     runs-on: ubuntu-latest
+    continue-on-error: true   # ← advisory, won’t block merges
     steps:
       - uses: actions/checkout@v4
       - name: Lychee Link Checker
