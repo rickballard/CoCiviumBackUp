@@ -11,7 +11,7 @@ This folder captures state so a fresh session can resume without the chat log.
 ## Start here
 1. Read \CoviumHandoff.odt\.
 2. Review/merge PRs: **#69** (Consenti c2 uplift) and **#70** (Master backlog & plan).
-3. Extract \cocivium_oneblocks.zip\ and run \un_cocivium_oneblocks.ps1\ from Downloads.
+3. Extract \cocivium_oneblocks.zip\ and run \un_cocivium_oneblocks.ps1\ from Downloads.
 4. Finish **P0s** in \
 otes/master_backlog.md\.
 5. Wiki: verify Home / Getting-Started / Decision-Flow / Roles / Domains; link the Finance brief.
@@ -20,3 +20,6 @@ otes/master_backlog.md\.
 
 ## Known issues
 - Chat instruction truncation / prompt pollution — see the bundle’s paste-safety notes and the included bug issue template.
+
+
+

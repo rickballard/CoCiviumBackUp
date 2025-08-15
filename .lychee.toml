@@ -11,3 +11,5 @@ user_agent = "CoCiviumLinkChecker/0.1 (+https://cocivium.org)"
 accept = ["200", "204", "301", "302", "403", "429"]
 schemes = ["http", "https", "mailto"]
 exclude_path = ["legacy/", "staging/", "insights/", "scroll/"]
+
+

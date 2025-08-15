@@ -14,3 +14,15 @@
 *.yaml text eol=lf
 *.json text eol=lf
 *.editorconfig text eol=lf
+
+
+
+*.toml  text eol=lf
+*.jsonl text eol=lf
+*.cmd   text eol=lf
+*.reg   text eol=lf
+.gitattributes text eol=lf
+.gitignore     text eol=lf
+.markdownlintignore text eol=lf
+.mdlrc         text eol=lf
+.lychee.toml   text eol=lf

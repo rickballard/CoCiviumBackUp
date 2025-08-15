@@ -9,3 +9,5 @@ trim_trailing_whitespace = true
 [*.ps1]
 indent_style = space
 indent_size = 2
+
+

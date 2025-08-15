@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if git grep -nI $'\r' -- . ':!*.png' ':!*.jpg' ':!*.gif' ':!*.svg' ':!*.pdf' ; then
+  echo "CRLF detected in the files above. Please convert to LF." >&2
+  exit 1
+fi
