@@ -26,3 +26,5 @@
 .markdownlintignore text eol=lf
 .mdlrc         text eol=lf
 .lychee.toml   text eol=lf
+.githooks/*            text eol=lf
+.github/CODEOWNERS     text eol=lf

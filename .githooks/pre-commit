@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
-if git grep -nI $'\r' -- . ':!*.png' ':!*.jpg' ':!*.gif' ':!*.svg' ':!*.pdf' ; then
-  echo "CRLF detected in the files above. Please convert to LF." >&2
+# Fail if any staged text file blob contains a CR
+bad_files=$(git diff --cached --name-only -z | xargs -0 -I{} sh -c \
+  "git show :{} | grep -Iq . && git show :{} | grep -q $'\r' && echo {} || true")
+if [ -n "$bad_files" ]; then
+  echo "CR (Windows carriage returns) found in staged files:" >&2
+  echo "$bad_files" >&2
+  echo "Please convert to LF (Unix) and re-stage." >&2
   exit 1
 fi
