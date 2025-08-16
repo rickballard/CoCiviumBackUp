@@ -1,6 +1,6 @@
 ---
----
 name: Pages (Jekyll: preview on PR, deploy on main)
+
 on:
   pull_request:
     paths:
@@ -28,7 +28,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      - uses: actions/jekyll-build-pages@v1
+      - name: Build (Jekyll)
+        uses: actions/jekyll-build-pages@v1
         with:
           source: ./site
           destination: ./_site
@@ -37,13 +38,12 @@ jobs:
           path: ./_site
 
   deploy:
-    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')
     needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-
-
