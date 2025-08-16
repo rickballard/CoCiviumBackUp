@@ -1,16 +1,8 @@
 ---
-name: Pages (PR preview; deploy on main)
-
+name: Pages (static preview)
 on:
   pull_request:
-    paths:
-      - "site/**"
-      - ".github/workflows/pages.yml"
-  push:
-    branches: [ main ]
-    paths:
-      - "site/**"
-      - ".github/workflows/pages.yml"
+    paths: ['site/**','.github/workflows/pages.yml']
   workflow_dispatch:
 
 permissions:
@@ -19,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
@@ -28,47 +20,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-
-      # Build (use Jekyll if Gemfile exists; otherwise copy static files)
-      - name: Detect site type
-        id: detect
-        shell: bash
-        run: |
-          if [ -f site/Gemfile ] || [ -f site/_config.yml ]; then
-            echo "jekyll=true" >> $GITHUB_OUTPUT
-          else
-            echo "jekyll=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Build with Jekyll
-        if: steps.detect.outputs.jekyll == 'true'
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./site
-          destination: ./_site
-        continue-on-error: true
-
-      - name: Fallback: copy static files
-        if: steps.detect.outputs.jekyll != 'true'
-        shell: bash
+      - name: Build (static copy)
         run: |
           mkdir -p _site
           rsync -a --delete site/ _site/ || true
-        continue-on-error: true
-
-      - name: Ensure non-empty artifact (placeholder)
-        shell: bash
-        run: |
-          mkdir -p _site
-          test -e _site/index.html || echo "<!doctype html><meta charset=utf-8><title>Preview</title><h1>CoCivium preview</h1>" > _site/index.html
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
   preview:
-    # Make PR previews non-blocking
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     needs: build
@@ -77,15 +37,3 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           preview: true
-        continue-on-error: true
-
-  deploy:
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
