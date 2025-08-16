@@ -89,6 +89,21 @@ See [meta/Doc_Headers_Footers.md](meta/Doc_Headers_Footers.md) and [meta/ONEBLOC
 
 </details>
 
+
+## Directory guide
+
+- /scroll/ — **Cognocarta Consenti** (the core scroll) and companions.
+- /docs/ — specs, principles, academy, contribution guides.
+- /docs/academy/ — workflow & productivity (BP_OE_WF, RepoAccelerator).
+- /admin/ — tooling, setup, history logs (snapshots, sweeps).
+- /admin/tools/BackChats/ — inbox/sweep utilities.
+- /admin/tools/reminders/ — ReminderHub runner.
+- /admin/history/ — generated reports (CI, sweeps, snapshots).
+- /site/ — website sources and /site/assets/ images.
+- /.github/ — Issue/PR templates, Actions workflows.
+- README_FOR_AI.md — quickstart for agent copilots.
+- LICENSE — CC BY-SA 4.0.
+
 ## License
 
 This project is licensed under **Creative Commons Attribution–ShareAlike 4.0 International**. See [LICENSE](LICENSE) for details.
