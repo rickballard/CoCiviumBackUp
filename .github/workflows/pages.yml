@@ -28,22 +28,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      - uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./site
-          destination: ./_site
+            - name: Prepare static artifact
+        run: echo "Static preview (no Jekyll)"
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
-
+          path: ./site
   deploy:
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')
     needs: build
     runs-on: ubuntu-latest
+    if: >
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.head.repo.full_name == github.repository)
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4
+
 
