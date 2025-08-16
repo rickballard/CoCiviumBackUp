@@ -25,4 +25,6 @@ main.scroll{
   body.scroll-skin{background:white; color:black}
   .gib svg{display:none}
   .gib::after{content:attr(data-fallback)}
-}
+}.glyph{margin:.5rem 0 2rem; opacity:.75; filter:grayscale(25%)}
+.glyph .gib{margin:0 .22rem; display:inline-flex}
+
