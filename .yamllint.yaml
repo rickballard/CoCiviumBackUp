@@ -1,3 +1,4 @@
+---
 extends: default
 ignore: |
   legacy/**
@@ -11,3 +12,4 @@ rules:
   document-start: disable
   truthy:
     level: warning
+

@@ -1,3 +1,4 @@
+---
 name: Deprecated Terms Sweep
 on:
   pull_request:
@@ -25,3 +26,4 @@ jobs:
       - name: Check for deprecated terms
         shell: pwsh
         run: pwsh tools/deprecated-sweep.ps1
+
