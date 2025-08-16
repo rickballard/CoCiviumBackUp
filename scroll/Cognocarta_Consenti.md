@@ -44,6 +44,8 @@ We do this so that cooperation scales with dignity, and freedom scales with care
 ---
 
 ### Annexes (Companion Documents)
+- **Annex E — Contingency & Non-Cooperation (AI-Conflict Readiness)**
+  `docs/charter/Annex_E_Contingency_AI_Conflict.md`
 - **Annex A — Concordia (Conflict Resolution)**
 - **Annex B — Operandi (Process & Workflows)**
 - **Annex C — Custodia (Security & Privacy Playbooks)**
