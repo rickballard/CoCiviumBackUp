@@ -49,7 +49,7 @@ function Write-ReminderSummary {
 
   $outDir = Join-Path $RepoRoot 'admin/history'
   if (!(Test-Path $outDir)) { New-Item -Type Directory -Force $outDir | Out-Null }
-  $out = Join-Path $outDir ("Reminder_Run_{0}.md" -f (Get-Date -Format 'yyyyMMdd_HHmmss'))
+  $out = Join-Path $outDir ("Reminder_Run_{0}.md" -f (Get-Date -Format 'yyyyMMdd_HHmmss_fff'))
   ($body -join "`n") | Set-Content $out -Encoding utf8
   Write-Host "Wrote $out"
 
@@ -85,4 +85,5 @@ if ($InstallTask) {
 
 # Normal run
 Write-ReminderSummary
+
 
