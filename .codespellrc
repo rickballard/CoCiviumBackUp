@@ -1,0 +1,4 @@
+[codespell]
+skip = legacy/**, staging/_imported/**, notes/migration/converted/**, *.png, *.jpg, *.svg, *.csv
+# keep ignore-words path if you like; adding a couple one-offs here too:
+ignore-words-list = ons

@@ -1,9 +1,10 @@
-name: codespell
+name: codespell --config=.codespellrc
 on: [push, pull_request]
 jobs:
   spell:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: python -m pip install --upgrade pip codespell
-      - run: codespell --ignore-words docs/lexicon/codespell-ignore.txt --skip "legacy/**,staging/_imported/**,*.png,*.jpg,*.svg"
+      - run: python -m pip install --upgrade pip codespell --config=.codespellrc
+      - run: codespell --config=.codespellrc --ignore-words docs/lexicon/codespell --config=.codespellrc-ignore.txt --skip "legacy/**,staging/_imported/**,*.png,*.jpg,*.svg"
+
