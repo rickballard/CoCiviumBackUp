@@ -1,10 +1,10 @@
 param([switch]$InstallTask)
 
 Set-StrictMode -Version Latest
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = 'Stop'
 
-# Ensure we operate at repo root even under Task Scheduler (default C:\Windows\System32)
-$RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path
+# Ensure repo root even when launched by Task Scheduler (starts in System32)
+$RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..')).Path
 Set-Location $RepoRoot
 
 $IsMonday = ((Get-Date).DayOfWeek -eq 'Monday')
@@ -19,10 +19,10 @@ function Get-StalePRs {
 
 function Write-ReminderSummary {
   $checklist = @(
-    "- [ ] PR surface",
-    "- [ ] CI snapshot",
-    "- [ ] BackChats sweep",
-    "- [ ] OE snapshot (Mon only)"
+    '- [ ] PR surface'
+    '- [ ] CI snapshot'
+    '- [ ] BackChats sweep'
+    '- [ ] OE snapshot (Mon only)'
   )
 
   $body = @()
@@ -73,9 +73,9 @@ if ($InstallTask) {
   if (-not $pwsh) { $pwsh = (Get-Command powershell).Source }
 
   $action    = New-ScheduledTaskAction -Execute $pwsh -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`""
-  $trigger   = New-ScheduledTaskTrigger -Daily -At 09:00
-  $settings  = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
-  $principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType Interactive
+  $trigger   = New-ScheduledTaskTrigger -Daily -At 08:30
+  $settings  = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -MultipleInstances IgnoreNew
+  $principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType Interactive -RunLevel Highest
 
   $task = New-ScheduledTask -Action $action -Trigger $trigger -Settings $settings -Principal $principal
   Register-ScheduledTask -TaskName $taskName -InputObject $task -Force | Out-Null
@@ -83,7 +83,8 @@ if ($InstallTask) {
   return
 }
 
-# Normal run
-Write-ReminderSummary
-
+# Normal run (single-instance guard — literal, no expansion)
+$mutex = New-Object -TypeName System.Threading.Mutex -ArgumentList @($false,'Global\CoCivium-ReminderHub')
+if (-not $mutex.WaitOne(0)) { Write-Host 'ReminderHub already running; exit.'; exit 0 }
+try { Write-ReminderSummary } finally { $mutex.ReleaseMutex(); $mutex.Dispose() }
 
