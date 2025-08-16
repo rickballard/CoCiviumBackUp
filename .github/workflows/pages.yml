@@ -2,7 +2,10 @@
 name: Pages (static preview)
 
 on:
-  pull_request:
+  push:
+    branches: [ ci/pages-preview ]
+    paths: ['site/**','.github/workflows/pages.yml']
+    pull_request:
     paths:
       - "site/**"
       - ".github/workflows/pages.yml"
@@ -47,3 +50,4 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           preview: true
+
