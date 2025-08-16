@@ -35,7 +35,7 @@ jobs:
 
       - name: Commit PNGs (if changed)
         run: |
-          git config user.name  "civium-bot"
+          git config user.name  "CoCivium-bot"
           git config user.email "actions@users.noreply.github.com"
           git add site/assets/*_og.png || true
           if ! git diff --cached --quiet; then
@@ -44,3 +44,4 @@ jobs:
           else
             echo "No PNG changes to commit."
           fi
+

@@ -4,8 +4,8 @@ $ErrorActionPreference='Stop'
 $apos = [char]0x2019
 $rules = @(
   @{ find = '(?i)\bCivium\b';          replace = 'CoCivium' },
-  @{ find = "Civium's";                replace = "CoCivium's" },
-  @{ find = ("Civium{0}s" -f $apos);   replace = ("CoCivium{0}s" -f $apos) }
+  @{ find = "CoCoCivium's";                replace = "CoCoCivium's" },
+  @{ find = ("CoCivium{0}s" -f $apos);   replace = ("CoCivium{0}s" -f $apos) }
   # add more here as we deprecate other words/phrases
 )
 
@@ -50,3 +50,4 @@ if($viol.Count){
   exit 1
 }
 Write-Host "No deprecated terms found."
+
