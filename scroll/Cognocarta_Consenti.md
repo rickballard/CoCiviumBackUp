@@ -54,4 +54,5 @@ We do this so that cooperation scales with dignity, and freedom scales with care
 > Annexes are living companions. They clarify and extend without fragmenting this constitution.
 
 ## Versioning
-- v0.1 (draft) — initialized from Civium materials; migrating legacy sections into Annexes.
+- v0.1 (draft) — initialized from earlier materials (pre-CoCivium phase); migrating legacy sections into Annexes.
+
