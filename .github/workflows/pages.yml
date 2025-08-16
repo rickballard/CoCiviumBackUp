@@ -1,14 +1,11 @@
----
 name: Pages (static preview)
 
 on:
   push:
     branches: [ ci/pages-preview ]
-    paths: ['site/**','.github/workflows/pages.yml']
-    pull_request:
-    paths:
-      - "site/**"
-      - ".github/workflows/pages.yml"
+    paths: ["site/**",".github/workflows/pages.yml"]
+  pull_request:
+    paths: ["site/**",".github/workflows/pages.yml"]
   workflow_dispatch:
 
 permissions:
@@ -26,20 +23,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      - name: Build (static copy)
+      - name: Ensure stub index exists
         shell: bash
         run: |
-          mkdir -p _site
-          shopt -s dotglob || true
-          cp -r site/* _site/ 2>/dev/null || true
-      - name: List built files
-        shell: bash
-        run: |
-          echo "PWD=$(pwd)"
-          ls -la _site || true
+          mkdir -p site
+          test -e site/index.html || echo '<!doctype html><h1>CoCivium preview</h1>' > site/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: ./site
 
   preview:
     if: github.event_name == 'pull_request'
@@ -50,4 +41,3 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           preview: true
-
