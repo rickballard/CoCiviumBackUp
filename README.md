@@ -28,13 +28,13 @@ The **Cognocarta Consenti** functions as a living constitution for consent-first
 
 ## Core Principles (abridged)
 
-1. **Consent over coercion** — opt-in, granular, revocable.  
-2. **Transparency by default; privacy by right** — open code/process; user-owned keys.  
-3. **Evidence over authority** — sources, tests, adversarial review.  
-4. **Least power, staged risk** — easy permissions, sandboxes, rollbacks.  
-5. **Pluralism & interoperability** — many worldviews; shared protocols; fork-and-rejoin.  
-6. **Commons stewardship** — open licenses; anti-enclosure, anti-capture.  
-7. **Antitrust of power (human or AI)** — authority caps, rotations, tests.  
+1. **Consent over coercion** — opt-in, granular, revocable.
+2. **Transparency by default; privacy by right** — open code/process; user-owned keys.
+3. **Evidence over authority** — sources, tests, adversarial review.
+4. **Least power, staged risk** — easy permissions, sandboxes, rollbacks.
+5. **Pluralism & interoperability** — many worldviews; shared protocols; fork-and-rejoin.
+6. **Commons stewardship** — open licenses; anti-enclosure, anti-capture.
+7. **Antitrust of power (human or AI)** — authority caps, rotations, tests.
 8. **Continuous improvement** — experiments; metrics; versions, recursion.
 
 > Full list: [docs/principles/CORE_SHORT.md](docs/principles/CORE_SHORT.md)
@@ -43,8 +43,8 @@ The **Cognocarta Consenti** functions as a living constitution for consent-first
 
 ## Start Here
 
-- **Quickstart:** clone, open `site/`, scan the progress map.  
-- **Quickstart for non-humans:** [README_FOR_AI.md](README_FOR_AI.md).  
+- **Quickstart:** clone, open `site/`, scan the progress map.
+- **Quickstart for non-humans:** [README_FOR_AI.md](README_FOR_AI.md).
 - **Academy:** [docs/academy](docs/academy) → supercharge your workflow [BP_OE_WF.md](docs/academy/BP_OE_WF.md).
 
 ---
