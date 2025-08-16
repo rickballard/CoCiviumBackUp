@@ -1,5 +1,5 @@
 ---
-name: Pages (Jekyll: preview on PR, deploy on main)
+name: Pages (adaptive Jekyll/static; preview on PR, deploy on main)
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - "site/**"
       - ".github/workflows/pages.yml"
   push:
-    branches: [ main ]
+    branches: [ "main" ]
     paths:
       - "site/**"
       - ".github/workflows/pages.yml"
@@ -28,27 +28,40 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-            - name: Prepare static artifact
-        run: echo "Static preview (no Jekyll)"
-      - uses: actions/upload-pages-artifact@v3
+
+      - name: Tree (site)
+        run: |
+          ls -la
+          echo "--- site/ ---"
+          ls -la site || true
+
+      # Build with Jekyll if project files exist
+      - name: Build with Jekyll
+        if: ${{ hashFiles('site/_config.yml') != '' || hashFiles('site/Gemfile') != '' }}
+        uses: actions/jekyll-build-pages@v1
         with:
-          path: ./site
+          source: ./site
+          destination: ./_site
+
+      # Otherwise ship static site/ as-is
+      - name: Prepare static artifact
+        if: ${{ !(hashFiles('site/_config.yml') != '' || hashFiles('site/Gemfile') != '') }}
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          cp -R site/* _site/ 2>/dev/null || true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: >
-      github.event_name == 'push' ||
-      (github.event_name == 'pull_request' &&
-       github.event.pull_request.head.repo.full_name == github.repository)
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-        uses: actions/deploy-pages@v4
-
-
