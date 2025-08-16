@@ -120,7 +120,7 @@ Use IssueOps: comment `/run` with a single fenced `bash` block. Details: [docs/I
 > Our living charter for consent, convergence, and coherence.
 > → **[Read the scroll](scroll/Cognocarta_Consenti.md)**
 
-[![Cognocarta Consenti — scroll preview](site/assets/cognocarta_scroll_og.svg)](scroll/Cognocarta_Consenti.md)
+[![Cognocarta Consenti — scroll preview](site/assets/cognocarta_scroll_og.png)](scroll/Cognocarta_Consenti.md)
 
 ## Quick links
 - Wiki: https://github.com/rickballard/CoCivium/wiki
@@ -129,5 +129,6 @@ Use IssueOps: comment `/run` with a single fenced `bash` block. Details: [docs/I
 > **Core Principles — Short Read:** see [docs/principles/CORE_SHORT.md](docs/principles/CORE_SHORT.md)
 
 > **CoCivium Academy:** see [docs/academy](docs/academy) — start with [BP_OE_WF.md](docs/academy/BP_OE_WF.md)
+
 
 
