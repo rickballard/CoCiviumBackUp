@@ -4,3 +4,5 @@ MD013: false   # line length
 MD033: false   # inline HTML
 MD041: false   # first line heading
 MD025: false   # single H1 per doc
+MD012: false
+MD036: false
