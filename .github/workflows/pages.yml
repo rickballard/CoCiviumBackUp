@@ -36,7 +36,6 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
-
   deploy:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')
     needs: build
