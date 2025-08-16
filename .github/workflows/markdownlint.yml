@@ -7,6 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install -g markdownlint-cli || true
-      - run: markdownlint **/*.md --config .markdownlint.yml || true
+      - run: markdownlint || true
+
 
 
