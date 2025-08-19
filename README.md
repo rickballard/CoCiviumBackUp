@@ -11,7 +11,17 @@ NOTE TO EDITORS (offline-safe):
 <!-- HERO (offline placeholder) -->
 <p align="center">
   <a href="./assets/hero/hero@2x.jpg">
-    <img src="./assets/hero/hero.jpg" alt="Global democracy health heat map" width="100%" />
+    <p align="center">
+  <a href="./assets/hero/hero@2x.jpg">
+    <img
+      src="./assets/hero/hero.jpg"
+      alt="World map – stylized democracy health backdrop"
+      title="“Government of the people, by the people, for the people.” — Abraham Lincoln, 1863"
+      width="100%"
+    />
+  </a>
+</p>
+<p align="center"><em>“Government of the people, by the people, for the people.” — Abraham Lincoln, 1863</em></p>
   </a>
 </p>
 <p align="center"><em>“Government of the people, by the people, for the people.” — Abraham Lincoln, 1863</em></p>
