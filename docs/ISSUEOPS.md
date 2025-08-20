@@ -39,3 +39,12 @@ You are assisting on the CoCivium project (open-source). Preferences:
 - Assume branch protection requires PRs; if automation needs a bypass, propose a temporary rules update and restore it.
 
 When asked to “do” something that requires a machine, emit a minimal `/run` bash block that fetches and executes the reviewed script from the repo.
+
+### Daily Workbench (one-click start)
+
+Use **CoCivium-Workbench.bat** (on your Desktop) to start a session with:
+- **Headless preflight** (`tools/readme-preflight.ps1`) → logs in `~/Documents/CoCiviumLogs/` (`preflight_latest.log`)
+- Opens only essentials: **ChatGPT**, **repo home**, **docs/ISSUEOPS.md**
+- **No lingering Git Bash or PowerShell windows**
+
+Customize: edit `admin/tools/workbench/Start-Workbench.ps1` → add/remove URLs in `$urls`.
