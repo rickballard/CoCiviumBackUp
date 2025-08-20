@@ -60,13 +60,13 @@
     "note": "config (tool support needed)"
   },
   {
-    "source": "merge-pr.sh",
-    "target": "admin\\tools\\merge-pr.sh",
+    "source": "admin/tools/merge-pr.sh",
+    "target": "admin\\tools\\admin/tools/merge-pr.sh",
     "note": "script"
   },
   {
-    "source": "ko-finisher.ps1",
-    "target": "admin\\tools\\ko-finisher.ps1",
+    "source": "admin/tools/ko-finisher.ps1",
+    "target": "admin\\tools\\admin/tools/ko-finisher.ps1",
     "note": "script"
   }
 ]

@@ -16,8 +16,8 @@
 - ./.markdownlintignore → ./admin\configs\.markdownlintignore  — config (tool support needed)
 - ./.mdlignore → ./admin\configs\.mdlignore  — config (tool support needed)
 - ./.mdlrc → ./admin\configs\.mdlrc  — config (tool support needed)
-- ./merge-pr.sh → ./admin\tools\merge-pr.sh  — script
-- ./ko-finisher.ps1 → ./admin\tools\ko-finisher.ps1  — script
+- ./merge-pr.sh → ./admin\tools\admin/tools/merge-pr.sh  — script
+- ./ko-finisher.ps1 → ./admin\tools\admin/tools/ko-finisher.ps1  — script
 
 ## README links likely to update
 
