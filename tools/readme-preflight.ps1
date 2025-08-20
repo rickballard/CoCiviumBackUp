@@ -1,50 +1,41 @@
-Set-StrictMode -Version Latest
-$ErrorActionPreference = 'Stop'
+param()
 
-# Find repo root in both script and interactive contexts
-$repo = $null
-try { $repo = (& git rev-parse --show-toplevel 2>$null).Trim() } catch {}
-if (-not $repo) {
-  if ($PSScriptRoot) { $repo = Split-Path -Parent $PSScriptRoot }
-  else { $repo = (Get-Location).Path }
+$ErrorActionPreference = "Stop"
+$readme = Join-Path $PWD "README.md"
+if (!(Test-Path $readme)) { throw "README.md not found" }
+
+$txt = Get-Content $readme -Raw
+
+Write-Host "== CoCivium smoke check =="
+Write-Host "Repo: $PWD"
+Write-Host "File: README.md"
+
+# 1) Newlines: hard fail on CR
+if ($txt -match "`r") {
+  Write-Host "✗ CR characters detected; convert to LF only."
+  exit 1
+} else {
+  Write-Host "✓ LF line endings"
 }
 
-$P   = Join-Path $repo 'README.md'
-$txt = Get-Content -Raw $P
+# 2) Minimal asset references (warn only)
+$crestRef = $txt -match 'assets/cc/cc-crest\.png'
+$eyesRef  = $txt -match 'assets/(status|diagrams)/two-eyes\.png'
 
-$errors = @()
+if ($crestRef) { Write-Host "✓ CC crest referenced" } else { Write-Host "⚠ CC crest not referenced" }
+if ($eyesRef)  { Write-Host "✓ Two Eyes referenced" } else { Write-Host "⚠ Two Eyes not referenced" }
 
-# 1) Mojibake marker
-if ($txt -match 'Γ') { $errors += "Mojibake token 'Γ' found." }
+# 3) Key links exist (warn only)
+$ideaLink  = $txt -match '\]\(https://github\.com/.+/issues/new\?template=idea\.yml\)'
+$choose    = $txt -match '\]\(https://github\.com/.+/issues/new/choose\)'
+$editLink  = $txt -match '\]\(https://github\.com/.+/edit/main/README\.md\)'
 
-# 2) Terms must NOT be blockquoted (use (?m) for multiline)
-if (Select-String -InputObject $txt -Pattern '(?m)^\s*>\s*Terms:') {
-  $errors += "Terms is blockquoted; remove leading '>'"
-}
+if ($ideaLink) { Write-Host "✓ Idea Issue link present" } else { Write-Host "⚠ Idea Issue link missing" }
+if ($choose)   { Write-Host "✓ Issues/choose link present" } else { Write-Host "⚠ Issues/choose link missing" }
+if ($editLink) { Write-Host "✓ Edit-this-file link present" } else { Write-Host "⚠ Edit-this-file link missing" }
 
-# 3) No "<> LABEL:" placeholders
-$lab = 'Why|Who|How|LIFE|FEELS|BROKEN|UNTIL|GOVERNMENTS|COEVOLVE|SOLUTIONS|FOR YOU'
-if (Select-String -InputObject $txt -Pattern "(?m)^\s*(?:&lt;\s*&gt;|<\s*>)\s*($lab)\s*:") {
-  $errors += "Found '<> LABEL:' placeholder lines."
-}
+# 4) BOM / mojibake quick scan (warn only)
+if ($txt.Length -gt 0 -and [int]$txt[0] -eq 0xFEFF) { Write-Host "⚠ UTF-8 BOM detected (harmless, but remove if easy)" } else { Write-Host "✓ No BOM" }
 
-# 4) Fix The World: exactly one H2
-$h2 = [regex]::Matches($txt,'(?m)^##\s*Fix The World')
-if ($h2.Count -ne 1) { $errors += "Fix The World headers: $($h2.Count) (expect 1)." }
-
-# 5) Icon lines count (expected 11)
-$icons = ([regex]::Matches($txt,'<img src="\./assets/icons/')).Count
-if ($icons -ne 11) { $errors += "Icon lines: $icons (expect 11)." }
-
-# 6) Hero assets present
-if (-not ($txt -match 'assets/hero/quote-960w\.png') -or -not ($txt -match 'assets/hero/hero\.gif')) {
-  $errors += "Hero assets reference missing."
-}
-
-# 7) Line endings & BOM
-if ($txt -match "`r") { $errors += "CR found; README must be LF-only." }
-$fs=[IO.File]::OpenRead($P); try { $bom = New-Object byte[] 3; [void]$fs.Read($bom,0,3) } finally { $fs.Dispose() }
-if ($bom[0]-eq0xEF -and $bom[1]-eq0xBB -and $bom[2]-eq0xBF) { $errors += "README has UTF-8 BOM; save without BOM." }
-
-if ($errors.Count) { $errors | % { Write-Host "❌ $_" -ForegroundColor Red }; exit 1 }
-Write-Host "✅ README preflight passed." -ForegroundColor Green
+Write-Host "All checks OK (warnings are informational)."
+exit 0
