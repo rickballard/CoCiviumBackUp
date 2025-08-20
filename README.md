@@ -93,29 +93,4 @@ Disagree without demeaning, explain like to a neighbor, assume good faith, signa
 ## Start here (quick links)
 
 - 📣 **New Idea →** [Open an issue](https://github.com/rickballard/CoCivium/issues/new/choose) *(placeholder)*
-- ✍️ **Start a post →** [Edit this file](https://github.com/rickballard/CoCivium/edit/main/README.md) or create `/proposals/your-idea.md`
-- 🧭 **CC Declarations →** [Index](./docs/cc/DECLARATIONS.md) *(placeholder)*
-- 🧰 **RepoAccelerator →** [Set up your AI](./admin/tools/repo-accelerator/README.md) *(placeholder)*
-- 🌐 **CoCivium.org →** https://CoCivium.org *(placeholder site)*
-
----
-
-## Governance & continuity
-
-- **License:** [LICENSE](./LICENSE) *(placeholder)*
-- **Governance:** [GOVERNANCE.md](./GOVERNANCE.md) *(includes decision process & roles)*
-- **Stewardship & Continuity:** [CONTINUITY.md](./CONTINUITY.md) *(“if Rick gets hit by a bus” plan: key holders, backups, hand-off procedures)*
-- **Security & Safety:** [SECURITY.md](./SECURITY.md) *(vuln reporting, escalation paths)*
-
----
-
-## Inspiration / Onboarding for humans first
-
-- **Being Noname** — a gentle, human-centric onramp to CoCivium’s spirit and practice.  
-  → [Read the essay](./docs/onboarding/Being-Noname.md) *(placeholder)*
-
-- **FAQ** — short answers to common “Do I need to code?” and “What if I only have 5 minutes?” questions.  
-  → [Read the FAQ](./docs/FAQ.md) *(placeholder)*
-
----
-
+- ✍️ **Start a post →** [Use the proposal template](./proposals/stub_proposal-template.md) and open a PR (a “post”).
