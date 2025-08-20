@@ -94,3 +94,5 @@ Disagree without demeaning, explain like to a neighbor, assume good faith, signa
 
 - 📣 **New Idea →** [Open an issue](https://github.com/rickballard/CoCivium/issues/new/choose) *(placeholder)*
 - ✍️ **Start a post →** [Use the proposal template](./proposals/stub_proposal-template.md) and open a PR (a “post”).
+
+- ✏️ **Edit this page →** [Edit this file](https://github.com/rickballard/CoCivium/edit/main/README.md)
