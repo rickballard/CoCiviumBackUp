@@ -15,3 +15,14 @@ Audience: experts (credibility) and everyday participants (easy onramp). Keep la
 
 ---
 
+## (test) Auto-create decisions dir works
+*When:* 2025-08-22 13:06:30 -04:00
+
+### DO
+(no-op)
+
+### ADVISORY
+Confirms Pin-Decision can create its target path automatically.
+
+---
+
