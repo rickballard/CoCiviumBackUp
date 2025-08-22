@@ -64,3 +64,6 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File tools/repo-sweep.ps1
 
 ### CoPitch — audience micro-pitches
 - Experts/builders, everyday participants, institutions; keep 50-word and 1-sentence versions.
+
+### CoFixPush — resolve push rejects fast
+- Runs: \git pull --rebase && git push\ on the current branch.
