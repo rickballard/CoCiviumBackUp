@@ -1,5 +1,8 @@
-# CC Preamble (stub bridge)
+# Cognocarta Consenti — Preamble (v0.1)
 
-> This page is a bridge to a stub while we write the full document.
+We, the participants of CoCivium, seek a living constitution for digital society:
+- **People-first**: dignity, consent, and access.
+- **Evolvable**: proposals → review → decision → action → accountability.
+- **Portable**: adoptable and auditable by any community.
 
-Read the stub: [stub_PREAMBLE.md](stub_PREAMBLE.md)
+This preamble frames the declarations below and may be amended through the same open process that governs all CC changes.
