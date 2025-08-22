@@ -26,3 +26,14 @@ Confirms Pin-Decision can create its target path automatically.
 
 ---
 
+## (sanity) Auto-create still works
+*When:* 2025-08-22 13:17:32 -04:00
+
+### DO
+(no-op)
+
+### ADVISORY
+Verifies the helper no longer depends on a pre-made directory.
+
+---
+
