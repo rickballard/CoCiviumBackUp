@@ -57,3 +57,10 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File tools/repo-sweep.ps1
 ---
 
 *This file is a living reference. Propose edits via a small PR.*
+
+### CoMessage — messaging helpers
+- Open/update docs/branding/Marketing-Messaging-v0.md (explainer/H1/tagline).
+- Keep 'above the fold' variants ready for README/site.
+
+### CoPitch — audience micro-pitches
+- Experts/builders, everyday participants, institutions; keep 50-word and 1-sentence versions.
